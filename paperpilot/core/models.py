@@ -15,6 +15,8 @@ class PaperRecord(Base):
     title: Mapped[str] = mapped_column(String(512), nullable=False)
     authors: Mapped[str] = mapped_column(Text, default="")
     abstract: Mapped[str] = mapped_column(Text, default="")
+    full_text: Mapped[str] = mapped_column(Text, default="")
+    checksum: Mapped[str | None] = mapped_column(String(128), nullable=True)
     doi: Mapped[str | None] = mapped_column(String(128), nullable=True)
     arxiv_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
     source_path: Mapped[str | None] = mapped_column(String(512), nullable=True)

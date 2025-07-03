@@ -1,6 +1,9 @@
 from fastapi import APIRouter
 
+from paperpilot.ingestion.routes import router as ingestion_router
+
 router = APIRouter()
+router.include_router(ingestion_router)
 
 
 @router.get("/papers")
