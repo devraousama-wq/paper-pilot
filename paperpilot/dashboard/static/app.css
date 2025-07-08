@@ -1,0 +1,9 @@
+body { font-family: Georgia, serif; margin: 0; background: #faf8f5; color: #1f1f1f; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #1f2937; color: #fff; }
+header a { color: #dbeafe; margin-left: 1rem; text-decoration: none; }
+main { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { border-bottom: 1px solid #ddd; padding: 0.75rem; text-align: left; }
+.panel { background: #fff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.chat-log { min-height: 240px; white-space: pre-wrap; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }

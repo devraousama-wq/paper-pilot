@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h2>{{ paper.title }}</h2>
+  <p><strong>Authors:</strong> {{ paper.authors }}</p>
+  <article>
+    <h3>Abstract</h3>
+    <p>{{ paper.abstract }}</p>
+  </article>
+  <div id="sections" data-paper-id="{{ paper.id }}"></div>
+  <script src="/static/viewer.js"></script>
+</section>
+{% endblock %}
