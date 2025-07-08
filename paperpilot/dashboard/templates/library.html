@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h2>Library</h2>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Title</th><th>Authors</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      {% for paper in papers %}
+      <tr>
+        <td>{{ paper.id }}</td>
+        <td><a href="/papers/{{ paper.id }}">{{ paper.title }}</a></td>
+        <td>{{ paper.authors }}</td>
+        <td>{{ paper.status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

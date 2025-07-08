@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header>
+    <h1>PaperPilot</h1>
+    <nav>
+      <a href="/">Library</a>
+      <a href="/chat">RAG Chat</a>
+      <a href="/graph">Citation Graph</a>
+      <a href="/topics">Topics</a>
+      <a href="/queue">Reading Queue</a>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

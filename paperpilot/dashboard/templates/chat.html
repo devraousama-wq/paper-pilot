@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h2>RAG Chat</h2>
+  <form id="chat-form">
+    <textarea id="question" rows="4" style="width:100%"></textarea>
+    <button type="submit">Ask</button>
+  </form>
+  <div id="chat-log" class="chat-log"></div>
+</section>
+<script src="/static/chat.js"></script>
+{% endblock %}

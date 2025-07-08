@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h2>Literature Review Composer</h2>
+  <input id="topic" placeholder="Research topic" style="width:100%;padding:0.5rem">
+  <button id="generate-review">Generate</button>
+  <pre id="review-output"></pre>
+</section>
+<script src="/static/review.js"></script>
+{% endblock %}
