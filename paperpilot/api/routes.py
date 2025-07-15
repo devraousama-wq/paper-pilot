@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 
+from paperpilot.citations.routes import router as citations_router
 from paperpilot.embeddings.routes import router as embeddings_router
 from paperpilot.ingestion.routes import router as ingestion_router
 from paperpilot.parsers.routes import router as parser_router
@@ -12,6 +13,7 @@ router.include_router(parser_router)
 router.include_router(embeddings_router)
 router.include_router(search_router)
 router.include_router(rag_router)
+router.include_router(citations_router)
 
 
 @router.get("/papers")
