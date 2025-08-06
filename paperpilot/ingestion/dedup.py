@@ -68,3 +68,11 @@ async def dismiss_duplicate(session: AsyncSession, paper_id: int) -> None:
     if paper:
         paper.status = "duplicate"
         await session.commit()
+
+
+async def merge_into_canonical(session: AsyncSession, canonical_id: int, duplicate_id: int) -> None:
+    duplicate = await session.get(PaperRecord, duplicate_id)
+    if duplicate:
+        duplicate.status = "merged"
+        duplicate.source_path = f"merged:{canonical_id}"
+        await session.commit()
