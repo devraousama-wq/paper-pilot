@@ -9,7 +9,7 @@ from sqlalchemy import select
 from paperpilot.core.database import SessionLocal
 from paperpilot.core.models import PaperRecord
 from paperpilot.ingestion.bibtex import MetadataCache, enrich_openalex, parse_bibtex
-from paperpilot.ingestion.dedup import dismiss_duplicate, find_duplicates
+from paperpilot.ingestion.dedup import dismiss_duplicate, find_duplicates, merge_into_canonical
 from paperpilot.ingestion.recovery import recovery_store, retry_failed_jobs
 
 router = APIRouter(prefix="/ingestion-tools", tags=["ingestion-tools"])
@@ -62,6 +62,13 @@ async def dismiss_paper_duplicate(paper_id: int) -> dict[str, str]:
     async with SessionLocal() as session:
         await dismiss_duplicate(session, paper_id)
     return {"status": "dismissed"}
+
+
+@router.post("/dedup/merge")
+async def merge_duplicate(canonical_id: int, duplicate_id: int) -> dict[str, str]:
+    async with SessionLocal() as session:
+        await merge_into_canonical(session, canonical_id, duplicate_id)
+    return {"status": "merged"}
 
 
 @router.post("/jobs/retry")
